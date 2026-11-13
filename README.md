@@ -61,3 +61,8 @@ hakoniwa-requiem-mv/
   - 程序化粒子（风雪、烟气、炉火火星、水面涟漪、灰尘丁达尔光）
   - 中文 Vocaloid 风格动态歌词排版与节奏动势
   - 胶片颗粒与复古水彩调色LUT
+
+## 成片
+
+- `release/箱庭的镇魂曲_MV_1080p.mp4`：1920×1080 / 30fps / 4:38，中文歌词逐字出现
+- 工程在 `mv/`（Remotion）。重新渲染：`python tools/upscale.py video` 生成 `mv/public/hdvideo/`，然后 `cd mv && npm i && npm run render`
