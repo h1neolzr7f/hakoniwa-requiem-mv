@@ -37,14 +37,15 @@ export const TitleCard: React.FC<{t: number; start: number; end: number}> = ({t,
         <div
           style={{
             fontFamily: 'Noto Serif SC',
-            fontWeight: 300,
-            fontSize: 22,
-            letterSpacing: '0.62em',
-            color: 'rgba(240,244,255,0.9)',
+            fontWeight: 500,
+            fontSize: 26,
+            letterSpacing: '0.5em',
+            color: 'rgba(244,246,255,0.95)',
+            textShadow: '0 0 3px rgba(0,0,0,0.8), 0 0 18px rgba(0,0,0,0.6)',
             opacity: ramp(t, start + 1.8, start + 3),
           }}
         >
-          REQUIEM IN A MINIATURE GARDEN
+          二十四根火柴　一场漫长的守灵
         </div>
         <div style={{width: 260 * line, height: 1, background: 'linear-gradient(90deg, rgba(255,255,255,0.8), rgba(255,255,255,0))'}} />
       </div>
@@ -104,11 +105,11 @@ export const EndCard: React.FC<{t: number; start: number}> = ({t, start}) => {
       <div style={{fontFamily: 'LXGW', fontSize: 34, letterSpacing: '0.3em', opacity: a(1.6), filter: `blur(${(1 - a(1.6)) * 6}px)`}}>
         我们依然活着　替你爱着这世界
       </div>
-      <div style={{fontFamily: 'Noto Serif SC', fontStyle: 'italic', fontWeight: 300, fontSize: 20, letterSpacing: '0.3em', marginTop: 22, opacity: a(2.4) * 0.75}}>
-        for those who keep the lights on
+      <div style={{fontFamily: 'Noto Serif SC', fontWeight: 300, fontSize: 24, letterSpacing: '0.4em', marginTop: 22, opacity: a(2.4) * 0.75}}>
+        献给每一个替人守着灯火的你
       </div>
       <div style={{fontFamily: 'Noto Serif SC', fontWeight: 300, fontSize: 18, letterSpacing: '0.8em', marginTop: 70, opacity: a(3.6) * 0.7}}>
-        — FIN —
+        — 终 —
       </div>
     </div>
   );
