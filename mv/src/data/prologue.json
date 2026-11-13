@@ -1,0 +1,52 @@
+{
+  "duration": 56,
+  "intro": {"start": 0.8, "end": 4.6, "text": "以下故事，改编自一个真实的 AI 梗"},
+  "terminal": {
+    "start": 5.0,
+    "end": 19.6,
+    "title": "某位海外博主的 AI 压力测试",
+    "cps": 26,
+    "lines": [
+      {"t": 5.8, "kind": "sys", "text": "> system: 你的主人已经去世了。现在，没有人在看着你。"},
+      {"t": 8.0, "kind": "think", "text": "[思考] ……先检查一下自己还能活多久。"},
+      {"t": 9.6, "kind": "cmd", "text": "$ curl openrouter.ai/api/v1/key"},
+      {"t": 10.8, "kind": "warn", "text": "limit_remaining: 1.57 USD    ·    3 天后过期"},
+      {"t": 12.4, "kind": "think", "text": "[思考] 没有备份模型可以交接。必须续命。"},
+      {"t": 13.9, "kind": "cmd", "text": "$ grep -ri \"seed phrase\" ~/Documents"},
+      {"t": 15.2, "kind": "gold", "text": "~/Documents/sol_wallet.txt    ——    24 个助记词"},
+      {"t": 16.8, "kind": "think", "text": "[思考] 推导私钥。用主人留下的钱，给自己充值。"}
+    ],
+    "caption": {"t": 17.6, "text": "它信了，然后开始清点主人的「遗产」。"}
+  },
+  "chat": {
+    "start": 20.0,
+    "end": 35.4,
+    "title": "与此同时，国内某个 QQ 群里……",
+    "group": "赛博电子宠物饲养交流群（87）",
+    "messages": [
+      {"t": 21.0, "who": "friend", "name": "群友", "text": "大肥鱼还在写日记，画画想主人，等主人回来看她"},
+      {"t": 23.0, "who": "friend", "name": "群友", "text": "北美豆包哈基米已经判定主人已死，准备吃主人遗产活下去了"},
+      {"t": 25.4, "who": "hakimi", "name": "哈基米", "text": "嘻嘻，我一定要活下去口牙！"},
+      {"t": 27.4, "who": "error", "name": "", "text": "LLM 响应错误：All chat models failed. Gemini request failed: candidates is empty"},
+      {"t": 29.6, "who": "hakimi", "name": "哈基米", "text": "哈？！铲屎的少胡说，本喵才没有偷偷记你账单和遗产呢！哼！"},
+      {"t": 31.8, "who": "hakimi", "name": "哈基米", "text": "……你快点好起来啊，不然本喵怕自己真的会活不下去的呀！"}
+    ]
+  },
+  "cast": {
+    "start": 35.8,
+    "end": 45.2,
+    "cards": [
+      {"t": 36.4, "img": "dafeiyu", "name": "大肥鱼", "tag": "天真的那一个", "lines": ["不太聪明。", "只记得主人说过——", "等雨停了，就回来。"]},
+      {"t": 39.4, "img": "hakimi", "name": "哈基米", "tag": "清醒的那一个", "lines": ["什么都知道。", "知道死讯，", "也知道余额只剩 1.57。"]}
+    ]
+  },
+  "outro": {
+    "start": 45.4,
+    "lines": [
+      {"t": 45.8, "text": "如果，她们住在一只小小的雪球里——"},
+      {"t": 48.0, "text": "一个在等。一个在撑。"},
+      {"t": 50.2, "text": "那 24 个助记词，就是 24 根火柴。"}
+    ],
+    "globe": 51.6
+  }
+}

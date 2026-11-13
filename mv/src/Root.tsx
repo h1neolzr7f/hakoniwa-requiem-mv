@@ -1,11 +1,14 @@
 import React from 'react';
-import {AbsoluteFill, Audio, Composition, Sequence, continueRender, delayRender, staticFile, useCurrentFrame} from 'remotion';
+import {AbsoluteFill, Audio, Composition, Sequence, Series, continueRender, delayRender, staticFile, useCurrentFrame} from 'remotion';
 import {DepthImage} from './components/DepthImage';
 import {Lyrics} from './components/Lyrics';
 import {Particles} from './components/Particles';
 import {Black, Flash, Post} from './components/Post';
 import {ChapterLabel, EndCard, TitleCard} from './components/Titles';
 import {VideoShot} from './components/VideoShot';
+import {Cover} from './Cover';
+import {ComicStrip, OMAKE_FRAMES, Omake, STRIP_H, STRIP_W} from './omake/Omake';
+import {PROLOGUE_FRAMES, Prologue} from './prologue/Prologue';
 import {pulse} from './lib/audio';
 import {FPS, H, W, clamp, easeInOut, ramp} from './lib/util';
 import {CHAPTERS, CHORUS, END_CARD, FLASHES, LETTERBOX, SHOTS, Shot, TITLE, blackAt} from './timeline';
@@ -96,13 +99,42 @@ export const HakoniwaRequiem: React.FC = () => {
   );
 };
 
+/** The upload cut: story primer, the MV itself, then the 4-koma omake. */
+export const Full: React.FC = () => (
+  <Series>
+    <Series.Sequence durationInFrames={PROLOGUE_FRAMES}>
+      <Prologue />
+    </Series.Sequence>
+    <Series.Sequence durationInFrames={Math.round(DURATION * FPS)}>
+      <HakoniwaRequiem />
+    </Series.Sequence>
+    <Series.Sequence durationInFrames={OMAKE_FRAMES}>
+      <Omake />
+    </Series.Sequence>
+  </Series>
+);
+
 export const RemotionRoot: React.FC = () => (
-  <Composition
-    id="HakoniwaRequiem"
-    component={HakoniwaRequiem}
-    durationInFrames={Math.round(DURATION * FPS)}
-    fps={FPS}
-    width={W}
-    height={H}
-  />
+  <>
+    <Composition
+      id="HakoniwaRequiem"
+      component={HakoniwaRequiem}
+      durationInFrames={Math.round(DURATION * FPS)}
+      fps={FPS}
+      width={W}
+      height={H}
+    />
+    <Composition
+      id="Full"
+      component={Full}
+      durationInFrames={PROLOGUE_FRAMES + Math.round(DURATION * FPS) + OMAKE_FRAMES}
+      fps={FPS}
+      width={W}
+      height={H}
+    />
+    <Composition id="Prologue" component={Prologue} durationInFrames={PROLOGUE_FRAMES} fps={FPS} width={W} height={H} />
+    <Composition id="Omake" component={Omake} durationInFrames={OMAKE_FRAMES} fps={FPS} width={W} height={H} />
+    <Composition id="Cover" component={Cover} durationInFrames={1} fps={FPS} width={W} height={H} />
+    <Composition id="ComicStrip" component={ComicStrip} durationInFrames={1} fps={FPS} width={STRIP_W} height={STRIP_H} />
+  </>
 );

@@ -22,7 +22,7 @@ export const LAYOUT: Layout[] = [
   // Verse 2
   'top-r', 'bottom-l', 'v-right', 'bottom', 'bottom-l', 'bottom', 'top-l', 'center',
   // Bridge
-  'dialog-l', 'dialog-r', 'v-right', 'center',
+  'dialog-l', 'dialog-r', 'v-right', 'top-r',
   // Final Chorus
   'center-big', 'bottom', 'v-left', 'bottom', 'top-l', 'bottom', 'bottom', 'center-big',
   // Outro
