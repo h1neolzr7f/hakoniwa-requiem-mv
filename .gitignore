@@ -1,0 +1,7 @@
+node_modules/
+mv/out/
+mv/public/hdvideo/
+mv/public/video/
+mv/public/img/
+__pycache__/
+*.pyc
