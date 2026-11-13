@@ -16,9 +16,10 @@ uniform vec2 uC, uP;
 uniform vec3 uTint, uLift, uLightCol;
 uniform vec4 uLight;
 void main(){
-  vec2 uv = (vUv - 0.5) / uZoom + uC;
+  vec2 uv = (vUv - 0.5) / (uZoom * 1.04) + uC;
   vec2 p = uv;
   for (int i = 0; i < 5; i++) { float d = texture(uDep, p).r; p = uv + uP * (d - uFocus); }
+  p = 1.0 - abs(1.0 - abs(p));
   p = clamp(p, vec2(0.001), vec2(0.999));
   vec3 c = texture(uImg, p).rgb;
   vec3 b = textureLod(uImg, p, 5.0).rgb * 0.45 + textureLod(uImg, p, 6.5).rgb * 0.55;

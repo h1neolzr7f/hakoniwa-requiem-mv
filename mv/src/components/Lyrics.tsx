@@ -1,6 +1,6 @@
 import React from 'react';
 import lyrics from '../data/lyrics.json';
-import {EN, GLOW, LAYOUT, Layout} from '../data/lyricStyle';
+import {GLOW, LAYOUT, Layout} from '../data/lyricStyle';
 import {clamp, easeOut, ramp} from '../lib/util';
 
 type Line = {section: string; text: string; start: number; end: number; chars: {c: string; t: number}[]};
@@ -79,7 +79,7 @@ const Glyph: React.FC<{c: string; ct: number; t: number; out: number; i: number;
         opacity: op,
         filter: blur > 0.05 ? `blur(${blur}px)` : undefined,
         transform: vertical ? `translateX(${-rise * 0.3}px) translateY(${rise}px) scale(${scale})` : `translateY(${rise}px) scale(${scale})`,
-        textShadow: `0 0 ${10 + flash * 30}px rgba(${glow},${0.55 + flash * 0.4}), 0 0 ${34 + flash * 40}px rgba(${glow},${0.22 + flash * 0.3}), 0 2px 6px rgba(0,0,0,0.55)`,
+        textShadow: `0 0 ${10 + flash * 30}px rgba(${glow},${0.55 + flash * 0.4}), 0 0 ${34 + flash * 40}px rgba(${glow},${0.22 + flash * 0.3}), 0 2px 6px rgba(0,0,0,0.6), 0 0 22px rgba(0,0,0,0.32)`,
       }}
     >
       {c === ' ' ? '\u3000' : c}
@@ -101,8 +101,6 @@ export const Lyrics: React.FC<{t: number}> = ({t}) => (
         else phrases[phrases.length - 1].push(ch);
       }
       let gi = 0;
-      const enOut = Math.min(out, (LINES[li + 1]?.start ?? Infinity) - 0.3);
-      const enOp = ramp(t, line.start + 0.05, line.start + 0.6) * (1 - ramp(t, enOut, enOut + 0.3));
       const dialog = layout === 'dialog-l' || layout === 'dialog-r';
       return (
         <React.Fragment key={li}>
@@ -160,25 +158,6 @@ export const Lyrics: React.FC<{t: number}> = ({t}) => (
                 </div>
               );
             })}
-          </div>
-          <div
-            style={{
-              position: 'absolute',
-              left: 0,
-              right: 0,
-              bottom: 62,
-              textAlign: 'center',
-              fontFamily: 'Noto Serif SC',
-              fontStyle: 'italic',
-              fontWeight: 500,
-              fontSize: 24,
-              letterSpacing: '0.12em',
-              color: 'rgba(252,248,240,0.9)',
-              opacity: clamp(enOp),
-              textShadow: '0 0 2px rgba(0,0,0,0.85), 0 1px 10px rgba(0,0,0,0.75), 0 0 28px rgba(0,0,0,0.5)',
-            }}
-          >
-            {EN[li]}
           </div>
         </React.Fragment>
       );
